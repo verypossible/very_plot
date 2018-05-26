@@ -1,0 +1,68 @@
+version: 2
+
+
+dependencies: &install-dependencies
+  name: Install Python dependencies
+  command: pipenv sync --dev
+
+tests: &run-tests
+  name: Install Python dependencies
+  command: pipenv run pytest
+
+check-version: &check-version
+  name: verify git tag vs. version
+  command: pipenv run python setup.py verify
+
+package: &build-package
+  name: build package
+  command: |
+      pipenv run python setup.py sdist
+      pipenv run python setup.py bdist_wheel
+
+upload: &pypi-upload
+  name: upload to pypi
+  command: pipenv run twine upload dist/*
+
+
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/python:3.6.4
+    steps:
+      - checkout
+      - run: *install-dependencies
+      - run: *run-tests
+  deploy:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/python:3.6.4
+    steps:
+      - checkout
+      - run: *install-dependencies
+      - run: *check-version
+      - run:
+          name: init .pypirc
+          command: |
+            echo -e "[pypi]" >> ~/.pypirc
+            echo -e "username = $PYPI_USER" >> ~/.pypirc
+            echo -e "password = $PYPI_PASSWORD" >> ~/.pypirc
+      - run: *build-package
+      - run: *pypi-upload
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
+      - deploy:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
