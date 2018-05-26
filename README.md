@@ -2,13 +2,19 @@
 
 Python plotting tools for Very
 
- * Free software: GNU General Public License v3 * Documentation: <https://>very-plot.readthedocs.io.
+**Free software:** GNU General Public License v3
 
 
 ## Installation
 `pip install very_plot`
 
 ## Development
+
+
+### Publishing to PyPI
+* `git tag X.X.X; git push origin X.X.X`
+* This tag must match the version in `setup.py` or CI will fail.
+* CI will automatically deploy to PyPI if the build passes.
 
 
 ## Credits

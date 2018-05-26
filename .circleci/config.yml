@@ -6,7 +6,7 @@ dependencies: &install-dependencies
   command: pipenv sync --dev
 
 tests: &run-tests
-  name: Install Python dependencies
+  name: Run tests
   command: pipenv run pytest
 
 check-version: &check-version
