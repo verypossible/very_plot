@@ -8,14 +8,16 @@ python_version = "3.6"
 
 [packages]
 Click = "*"
+seaborn = ">=0.8.0"
+scipy = ">=1.0.0"
+pandas = ">=0.23.1"
 
 [dev-packages]
 isort = "*"
 "flake8" = "*"
 pytest = "*"
 pytest-cov = "*"
+pytest-mock = "*"
 pytest-watch = "*"
 twine = "*"
 yapf = "*"
-
-

@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 """The setup script."""
 
 import os
@@ -8,7 +7,12 @@ import sys
 from setuptools import setup, find_packages
 from setuptools.command.install import install
 
-VERSION = '0.1.0'
+from pipenv.project import Project
+from pipenv.utils import convert_deps_to_pip
+
+pfile = Project(chdir=False).parsed_pipfile
+
+VERSION = '0.2.0'
 
 
 class VerifyVersionCommand(install):
@@ -20,8 +24,7 @@ class VerifyVersionCommand(install):
 
         if tag != VERSION:
             info = "Git tag: {0} does not match the version of this app: {1}".format(
-                tag, VERSION
-            )
+                tag, VERSION)
             sys.exit(info)
 
 
@@ -31,11 +34,11 @@ with open('README.md') as readme_file:
 with open('HISTORY.md') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=6.0', ]
-
 setup_requirements = []
 
-test_requirements = ['pytest']
+requirements = convert_deps_to_pip(pfile['packages'], r=False)
+
+test_requirements = convert_deps_to_pip(pfile['dev-packages'], r=False)
 
 setup(
     author="Jeff McGehee",
@@ -71,5 +74,4 @@ setup(
     zip_safe=False,
     cmdclass={
         'verify': VerifyVersionCommand,
-    }
-)
+    })
