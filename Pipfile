@@ -15,6 +15,7 @@ pandas = ">=0.23.1"
 [dev-packages]
 isort = "*"
 "flake8" = "*"
+pipenv = "*"
 pytest = "*"
 pytest-cov = "*"
 pytest-mock = "*"
