@@ -12,7 +12,7 @@ from pipenv.utils import convert_deps_to_pip
 
 pfile = Project(chdir=False).parsed_pipfile
 
-VERSION = '0.2.0'
+VERSION = '0.3.0'
 
 
 class VerifyVersionCommand(install):
