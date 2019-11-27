@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "very_plot"
-version = "0.2.0"
+version = "0.4.0"
 description = "Python plotting tools for Very"
 authors = [
     "Jeff McGehee <jeff@verypossible.com>",
@@ -9,12 +9,15 @@ authors = [
 license = "GPL-3.0-only"
 readme = "README.md"
 repository = "https://github.com/verypossible/very_plot"
+homepage = "https://github.com/verypossible/very_plot"
 
 
 [tool.poetry.dependencies]
 python = "^3.8"
 matplotlib = "^3.1"
 seaborn = "^0.9.0"
+flake8 = "^3.7"
+coveralls = "^1.8"
 
 [tool.poetry.dev-dependencies]
 scipy = "^1.3"
