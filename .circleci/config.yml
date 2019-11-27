@@ -39,6 +39,13 @@ jobs:
           name: Run flake8
           command: |
             poetry run flake8 .
+
+      # And also Black
+      - run:
+          name: Run black
+          command: |
+            poetry run black --check .
+
       # Last step, runs our tests ommiting the dependencies path (so we don't take their coverage into account)
       # And send our coverage somewhere, in this case, coveralls
       - run:
