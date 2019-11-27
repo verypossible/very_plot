@@ -20,7 +20,7 @@ def test_very_axis_plot():
     ax.plot(np.arange(10, 20))
 
     for line in ax.get_lines():
-        assert line.get_color() == 'k'
+        assert line.get_color() == "k"
 
 
 def test_very_axis_hist():
@@ -50,10 +50,12 @@ def test_very_axis_scatter():
         print(dir(patch))
         assert all(
             tuple(col) in themes.VeryAxis.style_cycles["color"]
-            for col in patch._facecolors)
+            for col in patch._facecolors
+        )
         assert all(
             tuple(col) in themes.VeryAxis.style_cycles["edgecolor"]
-            for col in patch._edgecolors)
+            for col in patch._edgecolors
+        )
 
 
 def test_very_axis_despine(mocker):

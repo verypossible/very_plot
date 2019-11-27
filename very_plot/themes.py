@@ -20,17 +20,16 @@ def blog_mpl():
     """
     matplotlib.rcParams["axes.grid"] = True
 
-    monochrome = (cycler('color', ['k']) *
-                  cycler('marker', ['', '.']) *
-                  cycler('linestyle', ['-', '--', ':', '-.']) *
-                  cycler('alpha', [1.0]))
-
-    plt.rc(
-        'axes',
-        prop_cycle=monochrome,
+    monochrome = (
+        cycler("color", ["k"])
+        * cycler("marker", ["", "."])
+        * cycler("linestyle", ["-", "--", ":", "-."])
+        * cycler("alpha", [1.0])
     )
 
-    sns.set_style('ticks')
+    plt.rc("axes", prop_cycle=monochrome)
+
+    sns.set_style("ticks")
 
     matplotlib.projections.register_projection(VeryAxis)
 
@@ -41,7 +40,7 @@ class VeryAxis(matplotlib.axes._axes.Axes):
         "hatch": ["", "", ".", "*", "o", "/", "x", "+"],
         "marker": ["o", "o", "*", "*", "v", "v", "s", "s", "D", "D"],
         "color": [(0, 0, 0, 1), (1, 1, 1, 1)],
-        "edgecolor": [(1, 1, 1, 1), (0, 0, 0, 1)]
+        "edgecolor": [(1, 1, 1, 1), (0, 0, 0, 1)],
     }
 
     def __init__(self, *args, **kwargs):
