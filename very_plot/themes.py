@@ -13,7 +13,7 @@ def blog_mpl():
     ```
     from very_plot import themes
 
-    themes.blog_mpl_bw()
+    themes.blog_mpl()
     ```
 
     All plots after this import will follow this theme.
