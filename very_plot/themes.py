@@ -20,9 +20,9 @@ def blog_mpl():
     """
     matplotlib.rcParams["axes.grid"] = True
 
-    monochrome = (cycler('color', ['k']) * \
-                  cycler('marker', ['', '.']) * \
-                  cycler('linestyle', ['-', '--', ':', '-.']) * \
+    monochrome = (cycler('color', ['k']) *
+                  cycler('marker', ['', '.']) *
+                  cycler('linestyle', ['-', '--', ':', '-.']) *
                   cycler('alpha', [1.0]))
 
     plt.rc(
