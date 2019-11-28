@@ -1,4 +1,3 @@
-import pytest
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -21,7 +20,7 @@ def test_very_axis_plot():
     ax.plot(np.arange(10, 20))
 
     for line in ax.get_lines():
-        assert line.get_color() == 'k'
+        assert line.get_color() == "k"
 
 
 def test_very_axis_hist():
@@ -51,10 +50,31 @@ def test_very_axis_scatter():
         print(dir(patch))
         assert all(
             tuple(col) in themes.VeryAxis.style_cycles["color"]
-            for col in patch._facecolors)
+            for col in patch._facecolors
+        )
         assert all(
             tuple(col) in themes.VeryAxis.style_cycles["edgecolor"]
-            for col in patch._edgecolors)
+            for col in patch._edgecolors
+        )
+
+
+def test_very_axis_bar():
+    themes.blog_mpl()
+    fig, ax = plt.subplots(figsize=(12, 9))
+
+    data = np.random.rand(5, 5) * 5 + 2
+    x = np.arange(data.shape[0])
+    delta_x = np.arange(data.shape[1]) - data.shape[1] / 5.0
+    dx = delta_x / (data.shape[1] + 5.0)
+    d = 1.0 / (data.shape[1] + 5.0)
+
+    for i in range(data.shape[1]):
+        ax.bar(x + dx[i], data[:, i], width=d, label=f"label {i}")
+
+    for patch in ax.patches:
+        assert patch._hatch in themes.VeryAxis.style_cycles["hatch"]
+        assert patch._facecolor in themes.VeryAxis.style_cycles["color"]
+        assert patch._edgecolor in themes.VeryAxis.style_cycles["edgecolor"]
 
 
 def test_very_axis_despine(mocker):

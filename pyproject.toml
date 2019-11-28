@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "very_plot"
+version = "0.4.1"
+description = "Python plotting tools for Very"
+authors = [
+    "Jeff McGehee <jeff@verypossible.com>",
+    "DanielMartinAlarcon <daniel.ma@verypossible.com>"
+    ]
+license = "GPL-3.0-only"
+readme = "README.md"
+repository = "https://github.com/verypossible/very_plot"
+homepage = "https://github.com/verypossible/very_plot"
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+matplotlib = "^3.1"
+seaborn = "^0.9.0"
+flake8 = "^3.7"
+coveralls = "^1.8"
+
+[tool.poetry.dev-dependencies]
+scipy = "^1.3"
+pandas = "^0.25.3"
+pytest = "^5.3"
+jupyter = "^1.0"
+notebook = "^6.0"
+pytest-mock = "^1.12"
+pytest-watch = "^4.2"
+black = {version = "^18.3-alpha.0", allows-prereleases = true}
+mypy = "^0.740.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

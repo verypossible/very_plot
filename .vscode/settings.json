@@ -1,0 +1,20 @@
+{
+    "python.pythonPath": "/Users/danielmartinalarcon/Library/Caches/pypoetry/virtualenvs/very-plot-py3.8/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=80"
+    ],
+    "python.formatting.blackArgs": [
+        "--line-length=80"
+    ],
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true,
+}
