@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "very_plot"
-version = "0.4.0"
+version = "0.4.1"
 description = "Python plotting tools for Very"
 authors = [
     "Jeff McGehee <jeff@verypossible.com>",
