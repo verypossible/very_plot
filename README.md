@@ -8,10 +8,3 @@ Python plotting tools for Very
 ## Installation
 `pip install very_plot`
 
-## Development
-
-
-### Publishing to PyPI
-* `git tag X.X.X; git push origin X.X.X`
-* This tag must match the version in `setup.py` or CI will fail.
-* CI will automatically deploy to PyPI if the build passes.
