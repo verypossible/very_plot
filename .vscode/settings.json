@@ -6,10 +6,7 @@
     "python.formatting.provider": "black",
     "editor.formatOnSave": true,
     "python.linting.flake8Args": [
-        "--max-line-length=80"
-    ],
-    "python.formatting.blackArgs": [
-        "--line-length=80"
+        "--max-line-length=88"
     ],
     "python.testing.pytestArgs": [
         "tests"

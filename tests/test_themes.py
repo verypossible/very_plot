@@ -64,8 +64,7 @@ def test_very_axis_bar():
 
     data = np.random.rand(5, 5) * 5 + 2
     x = np.arange(data.shape[0])
-    delta_x = np.arange(data.shape[1]) - data.shape[1] / 5.0
-    dx = delta_x / (data.shape[1] + 5.0)
+    dx = (np.arange(data.shape[1]) - data.shape[1] / 5.0) / (data.shape[1] + 5.0)
     d = 1.0 / (data.shape[1] + 5.0)
 
     for i in range(data.shape[1]):
