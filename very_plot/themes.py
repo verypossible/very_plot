@@ -12,7 +12,6 @@ def blog_mpl():
     Usage:
     ```
     from very_plot import themes
-
     themes.blog_mpl()
     ```
 
@@ -46,6 +45,7 @@ class VeryAxis(matplotlib.axes._axes.Axes):
     def __init__(self, *args, **kwargs):
         self.hist_calls = 0
         self.scatter_calls = 0
+        self.bar_calls = 0
         self.despined = False
 
         super(VeryAxis, self).__init__(*args, **kwargs)
@@ -71,6 +71,15 @@ class VeryAxis(matplotlib.axes._axes.Axes):
         self.__set_kwargs(scatter_args, kwargs, self.scatter_calls)
         self.scatter_calls += 1
         result = super(VeryAxis, self).scatter(*args, **kwargs)
+
+        return result
+
+    def bar(self, *args, despine=True, **kwargs):
+        bar_args = ["color", "edgecolor", "hatch"]
+
+        self.__set_kwargs(bar_args, kwargs, self.bar_calls)
+        self.bar_calls += 1
+        result = super(VeryAxis, self).bar(*args, **kwargs)
 
         return result
 
